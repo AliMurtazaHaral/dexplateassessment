@@ -45,7 +45,7 @@ class _PokemonListScreenState extends State<PokemonListScreen> {
                         onTap: ()=> {
                           postToLocalStorage(pokemon['name'],pokemon['url'])
                         },
-                        child: Icon(Icons.add_box,color: Colors.red,)),
+                        child: Icon(Icons.favorite,color: Colors.red,)),
                   );
                 },
               );

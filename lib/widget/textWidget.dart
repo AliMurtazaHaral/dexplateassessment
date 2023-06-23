@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 class TextWidget extends StatelessWidget {
   TextWidget({
@@ -19,7 +19,7 @@ class TextWidget extends StatelessWidget {
     return Text(
       text,
       textAlign: align,
-      style: GoogleFonts.inter(
+      style: TextStyle(
         fontSize: size,
         color: color,
         fontWeight: weight,

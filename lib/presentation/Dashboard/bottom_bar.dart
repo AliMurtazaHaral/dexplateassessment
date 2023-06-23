@@ -43,10 +43,10 @@ class _BottomNavigationHolderState extends State<BottomNavigationHolder> {
 
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.person,
+              Icons.favorite,
               size: 25,
             ),
-            label: 'Profile',
+            label: 'Favourite',
           ),
         ],
         currentIndex: selectedIndex,
