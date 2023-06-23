@@ -1,4 +1,5 @@
 
+import 'package:dexplateassessment/presentation/Dashboard/bottom_bar.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -40,7 +41,7 @@ class SignInView extends StatelessWidget {
           listener: (context, state) {
             if (state is AuthenticationSuccess) {
               Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => const HomeView()),
+                  MaterialPageRoute(builder: (context) => const BottomNavigationHolder()),
                   (Route<dynamic> route) => false);
             }
           },

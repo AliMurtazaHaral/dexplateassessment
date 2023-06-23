@@ -65,7 +65,7 @@ class _PokemonListScreenState extends State<PokemonListScreen> {
 
     if (doesExist) {
       Fluttertoast.showToast(
-          msg: "Restaurant already added!",
+          msg: "already added!",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,
@@ -80,7 +80,7 @@ class _PokemonListScreenState extends State<PokemonListScreen> {
         key
       );
       Fluttertoast.showToast(
-          msg: "Restaurant has been added successfully",
+          msg: "Data has been added successfully",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,
