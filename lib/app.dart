@@ -1,4 +1,5 @@
 
+import 'package:dexplateassessment/presentation/Dashboard/bottom_bar.dart';
 import 'package:dexplateassessment/utils/constants.dart';
 import 'package:dexplateassessment/welcome_view.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class BlocNavigate extends StatelessWidget {
     return BlocBuilder<AuthenticationBloc, AuthenticationState>(
       builder: (context, state) {
         if (state is AuthenticationSuccess) {
-          return const HomeView();
+          return const BottomNavigationHolder();
         } else {
           return const WelcomeView();
         }

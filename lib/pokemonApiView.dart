@@ -42,7 +42,9 @@ class _PokemonListScreenState extends State<PokemonListScreen> {
                   return ListTile(
                     title: Text(pokemon['name']),
                     leading: GestureDetector(
-                        onTap: postToLocalStorage(pokemon['name'],pokemon['url']),
+                        onTap: ()=> {
+                          postToLocalStorage(pokemon['name'],pokemon['url'])
+                        },
                         child: Icon(Icons.add_box,color: Colors.red,)),
                   );
                 },
