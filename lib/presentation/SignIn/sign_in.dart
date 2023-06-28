@@ -3,6 +3,7 @@ import 'package:dexplateassessment/presentation/Dashboard/bottom_bar.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 import '../../bloc/bloc/auth_bloc.dart';
 import '../SignUp/sign_up.dart';
@@ -78,40 +79,50 @@ class _SignInState extends State<SignIn> {
                             key: _formKey,
                             child: Column(
                               children: [
-                                TextFormField(
-                                  keyboardType: TextInputType.emailAddress,
-                                  controller: _emailController,
-                                  decoration: const InputDecoration(
-                                    hintText: "Email",
-                                    border: OutlineInputBorder(),
+                                FormBuilder(
+                                  key: _formKey,
+                                  child:  Column(
+                                    children: [
+                                      FormBuilderTextField(
+                                        name: 'Email',
+                                        keyboardType: TextInputType.emailAddress,
+                                        autovalidateMode:
+                                        AutovalidateMode.onUserInteraction,
+                                        validator: (value) {
+                                          return value != null &&
+                                              !EmailValidator.validate(value)
+                                              ? 'Enter a valid email'
+                                              : null;
+                                        },
+                                        decoration: InputDecoration(
+                                          labelText: 'Email',
+                                          border: OutlineInputBorder(),
+                                        ),
+                                        controller: _emailController,
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      FormBuilderTextField(
+                                        name: 'Password',
+                                        keyboardType: TextInputType.text,
+                                        autovalidateMode:
+                                        AutovalidateMode.onUserInteraction,
+                                        decoration: InputDecoration(
+                                          labelText: 'Password',
+                                          border: OutlineInputBorder(),
+                                        ),
+                                        controller: _passwordController,
+                                        validator: (value) {
+                                          return value != null && value.length < 6
+                                              ? "Enter min. 6 characters"
+                                              : null;
+                                        },
+                                      ),
+                                    ],
                                   ),
-                                  autovalidateMode:
-                                      AutovalidateMode.onUserInteraction,
-                                  validator: (value) {
-                                    return value != null &&
-                                            !EmailValidator.validate(value)
-                                        ? 'Enter a valid email'
-                                        : null;
-                                  },
                                 ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                TextFormField(
-                                  keyboardType: TextInputType.text,
-                                  controller: _passwordController,
-                                  decoration: const InputDecoration(
-                                    hintText: "Password",
-                                    border: OutlineInputBorder(),
-                                  ),
-                                  autovalidateMode:
-                                      AutovalidateMode.onUserInteraction,
-                                  validator: (value) {
-                                    return value != null && value.length < 6
-                                        ? "Enter min. 6 characters"
-                                        : null;
-                                  },
-                                ),
+
                                 const SizedBox(
                                   height: 12,
                                 ),

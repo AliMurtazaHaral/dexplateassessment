@@ -3,6 +3,7 @@ import 'package:dexplateassessment/presentation/Dashboard/bottom_bar.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 import '../../bloc/bloc/auth_bloc.dart';
 import '../SignIn/sign_in.dart';
@@ -74,11 +75,11 @@ class _SignUpState extends State<SignUp> {
                         height: 18,
                       ),
                       Center(
-                        child: Form(
+                        child: FormBuilder(
                           key: _formKey,
                           child: Column(
                             children: [
-                              TextFormField(
+                              FormBuilderTextField(
                                 controller: _emailController,
                                 decoration: const InputDecoration(
                                   hintText: "Email",
@@ -91,12 +92,12 @@ class _SignUpState extends State<SignUp> {
                                           !EmailValidator.validate(value)
                                       ? 'Enter a valid email'
                                       : null;
-                                },
+                                }, name: 'Email',
                               ),
                               const SizedBox(
                                 height: 10,
                               ),
-                              TextFormField(
+                              FormBuilderTextField(
                                 controller: _passwordController,
                                 decoration: const InputDecoration(
                                   hintText: "Password",
@@ -108,7 +109,7 @@ class _SignUpState extends State<SignUp> {
                                   return value != null && value.length < 6
                                       ? "Enter min. 6 characters"
                                       : null;
-                                },
+                                }, name: 'Password',
                               ),
                               const SizedBox(
                                 height: 12,
