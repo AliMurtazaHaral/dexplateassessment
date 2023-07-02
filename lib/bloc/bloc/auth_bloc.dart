@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 
 import '../../data/repositories/auth_repository.dart';
 
-part 'auth_event.dart';
+part 'auth_cubit.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthCubit, AuthState> {
